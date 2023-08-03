@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Cardápio</h1>
+  <h3 id="mesa"></h3>
+  <div class="cardapio">
+    <ul id="lista-itens">
+      <li>
+        <span>Item 1 - R$ 10,00</span>
+        <button onclick="adicionarAoPedido(10)">Adicionar ao Pedido</button>
+      </li>
+      <li>
+        <span>Item 2 - R$ 15,00</span>
+        <button onclick="adicionarAoPedido(15)">Adicionar ao Pedido</button>
+      </li>
+      <!-- Adicione mais itens aqui -->
+    </ul>
+  </div>
+
+  <div class="pedido">
+    <h2>Pedido</h2>
+    <ul id="lista-pedido">
+      <!-- Itens adicionados ao pedido serão mostrados aqui -->
+    </ul>
+    <p>Total: R$ <span id="valor-total">0.00</span></p>
+    <p>Total de Pedidos: R$ <span id="valor-total-pedidos">0.00</span></p>
+    <button onclick="realizarPedido()">Realizar Pedido</button>
+    <button onclick="mostrarHistorico()">Mostrar Histórico</button>
+    <div id="inputWrapper" ">
+      <input type="password" id="senha" placeholder="Digite a senha">
+      <input type="text" id="numero-mesa" placeholder="Número da Mesa">
+      <button onclick="verificarMesa()">Confirmar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

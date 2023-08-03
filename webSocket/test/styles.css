@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .cardapio {
+    float: left;
+    width: 40%;
+    padding-right: 20px;
+  }
+  
+  .pedido {
+    float: right;
+    width: 40%;
+  }
+  
+  .cardapio ul,
+  .pedido ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cardapio li,
+  .pedido li {
+    margin-bottom: 10px;
+  }
+  
+  .cardapio button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .pedido button {
+    background-color: #f44336;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+.inputWrapper{
+    border: 2px solid black;
+}
