@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- Formulario-->
+    <form action="main.php" method="post" id="minhaForm">
+        <div>
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="email" placeholder="Email">
+            <textarea name="mensagem"  placeholder="Mensagem" ="30" rows="10"></textarea>
+            <button onclick="submeterFormulario('minhaForm')">Enviar</button>
+        </div>
+    </form>
+    <!-- Javascript-->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
