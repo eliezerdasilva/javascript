@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <script>
+        // verifica se o navegador suporta
+        if(typeof(Storage)!="undefine"){
+            
+            //Exemplo 1
+            /*
+            localStorage.removeItem("teste","1234");
+            localStorage.setItem("teste","1234");
+            var teste = localStorage.teste;
+            document.write(teste);
+            */
+           //Exemplo 2
+           if(localStorage.visitas){
+               localStorage.visitas= Number(localStorage.visitas)+1;
+            }else{
+                localStorage.visitas=1;
+           }
+           document.write("Visitas : "+localStorage.visitas);
+
+        }else{
+            document.write("Sem suporte");
+
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

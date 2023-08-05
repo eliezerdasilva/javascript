@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        #formConf {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border: 1px solid #000;
+            background-color: #888;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+    <script>
+        var tipoCorTexto, tipoCorFundo, nome;
+
+        if (typeof (Storage) != "undefine") {
+
+
+        } else {
+            document.write("Sem suporte");
+
+        }
+        function inicia() {
+
+
+            if (localStorage.nome) {
+
+                tipoCorFundo = localStorage.corFundo;
+                tipoCorTexto = localStorage.corTexto;
+                nome = localStorage.nome;
+                defineCor(1, tipoCorFundo)
+                defineCor(2, tipoCorTexto)
+                document.getElementById('painel').innerHTML = "Bem vindo" + nome + "<br>";
+            }
+        }
+
+        function gravar() {
+            
+            localStorage.corFundo = tipoCorFundo;
+            localStorage.corTexto = tipoCorTexto;
+            var nome = localStorage.nome;
+            
+            if (localStorage.nome) {
+                localStorage.nome = nome;
+            }else
+            {
+                localStorage.nome = document.getElementById('nome').value;
+                console.log(localStorage.nome)
+
+            }    
+            
+
+
+            const radiosFundo = document.getElementsByName('corFundo');
+            radiosFundo.forEach(radio => {
+                if (radio.checked) {
+                    radio.checked = false;
+                }
+            });
+
+            const radiosTexto = document.getElementsByName('corTexto');
+            radiosTexto.forEach(radio => {
+                if (radio.checked) {
+                    radio.checked = false;
+                }
+            });
+
+            var form = document.getElementById('formConf');
+            form.style.display = "none";
+        }
+        function defineCor(op, cor) {
+            if (op == 1) {
+                document.body.style.backgroundColor = cor;
+                tipoCorFundo = cor;
+            } else {
+                document.body.style.color = cor;
+                tipoCorTexto = cor;
+            }
+        }
+        function mostraForm() {
+            var form = document.getElementById('formConf');
+            form.style.display = "block";
+
+            if(localStorage.nome != undefined){
+                
+                nome = document.getElementById('nome');
+                nome.remove();
+                label = document.getElementById('label');
+                label.remove();
+            }
+
+        }
+        window.addEventListener("load", inicia)
+    </script>
+</head>
+
+<body>
+    <p>LocalStorage - JS</p>
+    <p id="painel"></p>
+    <button onclick="mostraForm()">Configurações</button>
+    <form name="formConf" id="formConf">
+        <label id="label">Nome :</label><br>
+        <input type="text" name="nome" id="nome" size="20"><br><br>
+        <label>Cor fundo</label><br>
+        <input type="radio" id="checked" name="corFundo" onclick="defineCor(1,'#00f')">Azul<br>
+        <input type="radio" id="checked" name="corFundo" onclick="defineCor(1,'#fff')">Branco<br>
+        <input type="radio" id="checked" name="corFundo" onclick="defineCor(1,'#000')">Preto<br><br>
+        <label>Cor texto</label><br>
+        <input type="radio" id="checked" name="corTexto" onclick="defineCor(2,'#00f')">Azul<br>
+        <input type="radio" id="checked" name="corTexto" onclick="defineCor(2,'#fff')">Branco<br>
+        <input type="radio" id="checked" name="corTexto" onclick="defineCor(2,'#000')">Preto<br><br>
+        <input type="button" value="Gravar" onclick="gravar()">
+
+
+    </form>
+</body>
+
+</html>
