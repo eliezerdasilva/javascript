@@ -10,13 +10,19 @@
 
 <body>
     <!-- Formulario-->
+    <div id="info"></div>
     <form action="main.php" method="post" id="minhaForm">
         <div>
             <input type="text" name="nome" placeholder="Nome">
-            <input type="text" name="email" placeholder="Email">
-            <textarea name="mensagem"  placeholder="Mensagem" ="30" rows="10"></textarea>
-            <button onclick="submeterFormulario('minhaForm')">Enviar</button>
         </div>
+        <div>
+            <input type="text" name="email" placeholder="Email">
+        </div>
+        <textarea name="mensagem" placeholder="Mensagem"="30" rows="10"></textarea>
+        <div>
+             <button onclick="submeterFormulario('minhaForm')">Enviar</button>
+        </div>
+
     </form>
     <!-- Javascript-->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>

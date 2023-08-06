@@ -13,12 +13,11 @@ function submeterFormulario(id_formulario){
             data: frm.serialize(),
             //sucesso
             success: function(i){
-                console.log('Dados submetidos com sucesso');
-                console.log(i);
+               $('#info').html('Enviado com sucesso');
             },
             //erro
             error: function(){
-                console.log("Aconteceu um erro");
+                $('#info').html('Aconteceu um erro');
             }
         });
     });
