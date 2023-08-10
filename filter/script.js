@@ -41,15 +41,7 @@ const radioSelecionado=()=>{
     return radioSelecionado[0]
 };
 
-btnCursoSelecionado.addEventListener("click",(evt)=>{
-    const rs=radioSelecionado()
-    try{
-        const cursoSelecionado=rs.parentNode.previousSibling.textContent
-        alert("Curso selecionado: " + cursoSelecionado)
-    }catch(ex){
-        alert("Selecione um curso")
-    }
-});
+
 
 btnRemoverCurso.addEventListener("click",(evt)=>{
 
@@ -59,30 +51,25 @@ btnRemoverCurso.addEventListener("click",(evt)=>{
 });
 
 btnAdicionarNovoCursoAntes.addEventListener("click",(evt)=>{
-    const rs=radioSelecionado()
+    const divParaRemover = document.getElementById(divSelecionada);
     try{
-        if(nomeCurso.value!=""){
-            const cursoSelecionado=rs.parentNode.parentNode
+        
             const novoCurso=criarNovoCurso(nomeCurso.value)
-            caixaCursos.insertBefore(novoCurso,cursoSelecionado)
-        }else{
-            alert("Digite o nome do curso")
-        }
+            caixaCursos.insertBefore(novoCurso,divParaRemover)
+       
     }catch(ex){
         alert("Selecione um curso")
     }
 });
 
 btnAdicionarNovoCursoDepois.addEventListener("click",(evt)=>{
-    const rs=radioSelecionado()
+    const divParaRemover = document.getElementById(divSelecionada);
     try{
-        if(nomeCurso.value!=""){
-            const cursoSelecionado=rs.parentNode.parentNode
+       
+        
             const novoCurso=criarNovoCurso(nomeCurso.value)
-            caixaCursos.insertBefore(novoCurso,cursoSelecionado.nextSibling)
-        }else{
-            alert("Digite o nome do curso")
-        }
+            caixaCursos.insertBefore(novoCurso,divParaRemover.nextSibling)
+     
     }catch(ex){
         alert("Selecione um curso")
     }
@@ -93,6 +80,7 @@ const divs = document.querySelectorAll('.conhecimentos');
 divs.forEach(function(div) {
     div.addEventListener('click', function() {
         pegarID(this);
+        div.classList.toggle("mudou-cor");
     });
 });
 
@@ -103,4 +91,19 @@ function pegarID(divClicada) {
     console.log("O ID da div clicada é: " +divSelecionada );
 }
 
-
+btnCursoSelecionado.addEventListener("click", (evt) => {
+    const divSelc = document.getElementById(divSelecionada);
+    try {
+        if (divSelc) { // Verifica se a div selecionada existe
+            
+            alert(divSelc.textContent);
+            divSelc.classList.toggle("mudou-cor");
+           
+         
+        } else {
+            alert("Selecione um curso");
+        }
+    } catch(ex) {
+        console.error(ex);
+    }
+});
