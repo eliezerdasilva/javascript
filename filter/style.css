@@ -33,9 +33,9 @@ button{
     align-items: center;
 }
 .selecionado{
-    background-color: #800 !important;
+    background-color: rgb(47, 68, 232) !important;
     color: #fcc !important;
-    border-color: #f00 !important;
+    border-color: rgb(132, 198, 218) !important;
 }
 .c1{
     background-color: #ccc;

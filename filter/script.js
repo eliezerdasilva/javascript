@@ -18,16 +18,25 @@ const criarNovoCurso=(curso)=>{
     novoElemento.setAttribute("id","c"+ indice)
     novoElemento.setAttribute("class","conhecimentos")
     novoElemento.innerHTML=curso
-
-    const comandos=document.createElement("div")
-    comandos.setAttribute("class","comandos")
     
-    novoElemento.appendChild(comandos)
-
+    novoElemento.addEventListener("click",(evt)=>{
+        limparCampoSelecionado();
+        evt.target.classList.toggle("selecionado")
+    })
     indice++ ;
     return novoElemento;
 };
 
+
+const limparCampoSelecionado=()=>
+{
+
+    const selecionado = [... document.querySelectorAll(".selecionado")]
+selecionado.map((elemento)=>{
+elemento.classList.remove("selecionado")
+})
+
+}
 cursos.map((el,chave)=>{
     const novoElemento=criarNovoCurso(el)
     caixaCursos.appendChild(novoElemento)
